@@ -19,13 +19,9 @@ public class Main {
         String value1 = reader.readLine();            // считывание значения с клавиатуры
         int clientOs = Integer.parseInt(value1);       // преобразование строки в число
 
-
-
-        switch (clientOs) {
-            case 0 -> System.out.println("Установите версию приложения для iOS по ссылке");
-            case 1 -> System.out.println("Установите версию приложения для Android по ссылке");
-            default -> System.out.println("Выберите корректное значение (IOS либо Android)");
-        }
+        if(clientOs == 0) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        } else System.out.println("Установите версию приложения для Android по ссылке");
 
         /* Задача 2
         По условию задачи было необходимо определить переменную clientDeviceYear значением 2015,
@@ -62,22 +58,12 @@ public class Main {
         String value4 = reader.readLine();            // считывание значения с клавиатуры
         double year = Double.parseDouble(value4);          // преобразование строки в число
 
-        double leapYearCheck1 = year / 4;                             // проверка деления на 4 (будет ли значение с плавающей точкой)
-        double leapYearCheck2 = year / 400;                          // проверка деления на 400 (будет ли значение с плавающей точкой)
-        double leapYearCheck3 = year / 100;
-        double reminder1 = leapYearCheck1 - (int) leapYearCheck1;      // остаток после запятой после деления на 4
-        double reminder2 = leapYearCheck2 - (int) leapYearCheck2;      // остаток после запятой после деления на 400
-        double reminder3 = leapYearCheck3 - (int) leapYearCheck3;      // остаток после запятой после деления на 100
-        boolean yearIsLeap1 = year > 1584 && (reminder1 == 0 || reminder2 == 0);
-        boolean yearIsLeap2 = reminder3 != 0 || reminder2 == 0;
-
-
-
-        if (yearIsLeap1) {
-            if(yearIsLeap2) {
+        if (year % 4 == 0 || year % 400 == 0) {
+            if (year % 100 != 0) {
                 System.out.println("Год является високосным");
-            } else System.out.println("Год високосным не является");
-        } else System.out.println("Год високосным не является");
+            } else System.out.println("Год является високосным");
+        } else System.out.println("Год не является високосным");
+
 
         // Задача 4
 
