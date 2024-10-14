@@ -58,11 +58,15 @@ public class Main {
         String value4 = reader.readLine();            // считывание значения с клавиатуры
         double year = Double.parseDouble(value4);          // преобразование строки в число
 
-        if (year % 4 == 0 || year % 400 == 0) {
-            if (year % 100 != 0) {
-                System.out.println("Год является високосным");
-            } else System.out.println("Год является високосным");
-        } else System.out.println("Год не является високосным");
+        if (year % 100 == 0) {
+            if (year % 400 ==0) {
+                System.out.println("високос");
+            } else System.out.println("не високос");
+        }  else if (year % 4 == 0) {
+            if (year % 100 != 0)
+                System.out.println("високос");
+        } else System.out.println("не високос");
+
 
 
         // Задача 4
